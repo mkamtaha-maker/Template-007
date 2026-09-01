@@ -1,275 +1,342 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE GRILL HOUSE | تجربة الطهي الفاخر</title>
-    <!-- خطوط جوجل: Playfair Display للإنجليزية والعناوين، Cairo للعربية -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome للأيقونات -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Grill House | Gourmet Steakhouse & Artisanal Burgers</title>
+  
+  <!-- Google Fonts: Cinzel & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            gold: {
+              400: '#e5c558',
+              500: '#d4af37',
+              600: '#b89726',
+              700: '#94761a',
+            },
+            dark: {
+              800: '#1a1c20',
+              900: '#121417',
+              950: '#0a0b0d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
-<body>
+<body class="font-sans bg-dark-950 text-stone-200 antialiased selection:bg-gold-500 selection:text-black">
 
-    <!-- Header & Navigation -->
-    <header class="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <span class="gold-text">GRILL</span>HOUSE
-            </a>
-            <nav class="nav-links">
-                <a href="#home">الرئيسية</a>
-                <a href="#about">قصتنا</a>
-                <a href="#menu">قائمة الطعام</a>
-                <a href="#experience">التجربة</a>
-                <a href="#reviews">الآراء</a>
-            </nav>
-            <div class="nav-actions">
-                <button class="btn btn-gold" onclick="openReservationModal()">حجز طاولة</button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <span class="sub-title">المذاق الحقيقي للشواء الفاخر</span>
-            <h1>نقدم لك لحوم معتقة ونكهات مدخنة لا تُنسى</h1>
-            <p>أطباق برجر ومشاوي معدة يدوياً من أجود لحوم الواغيو والبلاك أنجوس، مطبوخة ببطء على الحطب الطبيعي.</p>
-            <div class="hero-cta">
-                <a href="#menu" class="btn btn-gold">استكشف المنيو</a>
-                <button class="btn btn-outline" onclick="openReservationModal()">احجز طاولتك</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container grid-2">
-            <div class="about-image">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Gourmet Meat">
-                    <div class="badge-experience">
-                        <span class="years">15+</span>
-                        <span class="text">عاماً من الشغف والتميز</span>
-                    </div>
-                </div>
-            </div>
-            <div class="about-text">
-                <span class="section-tag">سر تميزنا</span>
-                <h2>شغف بالشواء، اختيار لأجود المكونات</h2>
-                <p>نؤمن بأن كل وجبة هي تجربة فريدة. نعتمد فقط على المكونات العضوية الطازجة ولحوم الأنجوس المعتمدة المتبلة بخلطاتنا الحصرية المدخنة بخشب البلوط الطبيعي.</p>
-                <div class="features-list">
-                    <div class="feature-item">
-                        <i class="fa-solid fa-fire-burner"></i>
-                        <div>
-                            <h4>طهي على الحطب الطبيعي</h4>
-                            <p>نكهات مدخنة متأصلة بحرارة خشب الأواك الفاخر.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fa-solid fa-award"></i>
-                        <div>
-                            <h4>لحوم معتقة ممتازة</h4>
-                            <p>لحوم بلاك أنجوس وواغيو معتقة بعناية لـ 28 يوماً.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Menu Section with Dynamic Filter -->
-    <section id="menu" class="menu-section">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-tag">أطباقنا الحصرية</span>
-                <h2>قائمة المأكولات الفاخرة</h2>
-                <div class="menu-tabs">
-                    <button class="tab-btn active" data-category="all">الكل</button>
-                    <button class="tab-btn" data-category="burgers">البرجر الفاخر</button>
-                    <button class="tab-btn" data-category="steaks">الستيك والمشاوي</button>
-                    <button class="tab-btn" data-category="sides">المقبلات والجانبية</button>
-                    <button class="tab-btn" data-category="drinks">المشروبات المنعشة</button>
-                </div>
-            </div>
-
-            <div class="menu-grid" id="menu-grid">
-                <!-- Item 1 -->
-                <div class="menu-card" data-category="burgers">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Wagyu Truffle Burger">
-                        <span class="price-tag">85 ر.س</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>واغيو ترافل برجر</h3>
-                        <p>شريحة لحم واغيو معتقة، صوص الترافل الأسود، جبن الغرويير وسلطة الجرجير البرية في خبز البريوش.</p>
-                        <button class="btn-order-fast"><i class="fa-solid fa-bag-shopping"></i> طلب سريع</button>
-                    </div>
-                </div>
-
-                <!-- Item 2 -->
-                <div class="menu-card" data-category="steaks">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=600&q=80" alt="Tomahawk Steak">
-                        <span class="price-tag">240 ر.س</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>ستيك توماهوك بلاك أنجوس</h3>
-                        <p>شريحة توماهوك تزن 900 غرام مشوية على الفحم النباتي مع زبدة الأعشاب وإكليل الجبل.</p>
-                        <button class="btn-order-fast"><i class="fa-solid fa-bag-shopping"></i> طلب سريع</button>
-                    </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="menu-card" data-category="burgers">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80" alt="Smoked Brisket Burger">
-                        <span class="price-tag">78 ر.س</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>سموكد بريسكت برجر</h3>
-                        <p>لحم بريسكت مدخن لمدة 14 ساعة، صوص الباربكيو الكاروليني، كول سلو بالخردل المقرمش.</p>
-                        <button class="btn-order-fast"><i class="fa-solid fa-bag-shopping"></i> طلب سريع</button>
-                    </div>
-                </div>
-
-                <!-- Item 4 -->
-                <div class="menu-card" data-category="sides">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=600&q=80" alt="Truffle Parmesan Fries">
-                        <span class="price-tag">38 ر.س</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>بطاطس مقرمشة بزيت الترافل والبارميزان</h3>
-                        <p>بطاطس طازجة مقطعة يدوياً، مع زيت الترافل الأبيض وجبن البارميزان المعتق ورشة بقدونس.</p>
-                        <button class="btn-order-fast"><i class="fa-solid fa-bag-shopping"></i> طلب سريع</button>
-                    </div>
-                </div>
-
-                <!-- Item 5 -->
-                <div class="menu-card" data-category="steaks">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=600&q=80" alt="Ribeye Steak">
-                        <span class="price-tag">195 ر.س</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>ريب آي معتق 300 غرام</h3>
-                        <p>شريحة ريب آي رخامية مشوية بدرجة الاستواء المفضلة لك مع صوص الفلفل الأسود الكريمي.</p>
-                        <button class="btn-order-fast"><i class="fa-solid fa-bag-shopping"></i> طلب سريع</button>
-                    </div>
-                </div>
-
-                <!-- Item 6 -->
-                <div class="menu-card" data-category="drinks">
-                    <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80" alt="Smoked Berry Mocktail">
-                        <span class="price-tag">28 ر.س</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>موكتيل التوت البري المدخن</h3>
-                        <p>مزيج منعش من التوت البري، الريحان الطازج، ولمسة مدخنة خفيفة مع الصودا الفوارة.</p>
-                        <button class="btn-order-fast"><i class="fa-solid fa-bag-shopping"></i> طلب سريع</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reservation Section -->
-    <section id="reservation" class="reservation-section">
-        <div class="container">
-            <div class="reservation-box">
-                <div class="reservation-header text-center">
-                    <span class="section-tag">خدمة كبار الشخصيات</span>
-                    <h2>احجز طاولتك الفاخرة الآن</h2>
-                    <p>استمتع بتجربة طعام استثنائية مع أجواء راقية وخدمة مخصصة.</p>
-                </div>
-                <form class="reservation-form" id="bookingForm">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label>الاسم بالكامل</label>
-                            <input type="text" placeholder="مثال: أحمد العلي" required>
-                        </div>
-                        <div class="form-group">
-                            <label>رقم الهاتف</label>
-                            <input type="tel" placeholder="+966 5x xxx xxxx" required>
-                        </div>
-                        <div class="form-group">
-                            <label>عدد الضيوف</label>
-                            <select required>
-                                <option value="1">شخص واحد</option>
-                                <option value="2" selected>شخصين</option>
-                                <option value="4">4 أشخاص</option>
-                                <option value="6">6 أشخاص أو أكثر (جلسة VIP)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>التاريخ</label>
-                            <input type="date" required>
-                        </div>
-                        <div class="form-group">
-                            <label>الوقت</label>
-                            <input type="time" required>
-                        </div>
-                        <div class="form-group">
-                            <label>مناسبة خاصة؟</label>
-                            <select>
-                                <option value="none">عشاء عادي</option>
-                                <option value="birthday">عيد ميلاد</option>
-                                <option value="anniversary">ذكرى سنوية</option>
-                                <option value="business">عشاء عمل</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-submit text-center">
-                        <button type="submit" class="btn btn-gold btn-large">تأكيد الحجز الفوري</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <a href="#" class="logo"><span class="gold-text">GRILL</span>HOUSE</a>
-                <p>وجهتكم الأولى لأشهى أطباق اللحوم المعتقة والبرجر الفاخر المحضر بأعلى معايير الطهي العالمية.</p>
-            </div>
-            <div class="footer-col">
-                <h4>ساعات العمل</h4>
-                <p>يومياً: من 1:00 ظهراً حتى 1:30 بعد منتصف الليل</p>
-                <p>الجمعة: من 2:00 ظهراً حتى 2:00 بعد منتصف الليل</p>
-            </div>
-            <div class="footer-col">
-                <h4>تواصل معنا</h4>
-                <p><i class="fa-solid fa-location-dot"></i> طريق الملك فهد، الرياض، المملكة العربية السعودية</p>
-                <p><i class="fa-solid fa-phone"></i> +966 11 000 0000</p>
-            </div>
-        </div>
-        <div class="footer-bottom text-center">
-            <p>&copy; 2026 THE GRILL HOUSE. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
-
-    <!-- Reservation Modal Popup -->
-    <div class="modal" id="reservationModal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeReservationModal()">&times;</span>
-            <div class="modal-body text-center">
-                <i class="fa-solid fa-circle-check modal-icon"></i>
-                <h3>تم تأكيد طلب الحجز!</h3>
-                <p>سيتواصل معك فريق الاستقبال خلال 15 دقيقة لتأكيد تفاصيل الطاولة.</p>
-                <button class="btn btn-gold" onclick="closeReservationModal()">تم</button>
-            </div>
-        </div>
+  <!-- Top Bar -->
+  <div class="bg-black/80 text-stone-400 text-xs py-2 px-6 border-b border-stone-800">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <span><i class="fa-solid fa-fire-burner text-gold-500 me-2"></i> Oakwood Smoked Wagyu & Prime Dry-Aged Cuts</span>
+      <a href="ar.html" class="font-bold text-white hover:text-gold-400 flex items-center gap-1.5 transition">
+        <i class="fa-solid fa-globe text-gold-500"></i>
+        <span>العربية</span>
+      </a>
     </div>
+  </div>
 
-    <script src="script.js"></script>
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-dark-950/90 backdrop-blur-md border-b border-gold-500/20">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2">
+        <span class="font-serif text-2xl font-bold tracking-wider text-white">GRILL<span class="text-gold-500">HOUSE</span></span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-stone-300">
+        <a href="#about" class="hover:text-gold-400 transition">Our Story</a>
+        <a href="#menu" class="hover:text-gold-400 transition">Gourmet Menu</a>
+        <a href="#reservation" class="hover:text-gold-400 transition">VIP Table</a>
+        <a href="#contact" class="hover:text-gold-400 transition">Location</a>
+      </nav>
+
+      <a href="#reservation" class="bg-gold-500 hover:bg-gold-400 text-black text-xs font-bold px-6 py-2.5 rounded-full transition shadow-lg shadow-gold-500/10 flex items-center gap-2">
+        <i class="fa-solid fa-utensils"></i>
+        <span>Book Table</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative py-24 lg:py-32 bg-cover bg-center overflow-hidden" style="background-image: linear-gradient(to right, rgba(10, 11, 13, 0.95), rgba(10, 11, 13, 0.7)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80');">
+    <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="inline-block px-3.5 py-1 mb-6 text-xs font-bold tracking-wider uppercase text-gold-400 bg-gold-500/10 rounded-full border border-gold-500/30">
+          🔥 The Ultimate Steakhouse Experience
+        </span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight mb-6">
+          Prime Cuts, Oak Smoked to <span class="text-gold-500 italic">Perfection</span>
+        </h1>
+        <p class="text-stone-400 leading-relaxed mb-8 max-w-lg text-sm sm:text-base">
+          Indulge in 28-day dry-aged Black Angus steaks and handcrafted wagyu burgers grilled slowly over natural embers.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#menu" class="bg-gold-500 hover:bg-gold-400 text-black font-bold px-7 py-3.5 rounded-full transition shadow-lg text-sm">
+            Explore Menu
+          </a>
+          <a href="#reservation" class="bg-dark-800 hover:bg-dark-900 text-white font-bold px-7 py-3.5 rounded-full border border-gold-500/40 transition text-sm">
+            Reserve a Table
+          </a>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-gold-500/20">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Tomahawk Steak" class="w-full h-80 lg:h-96 object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Menu Section -->
+  <section id="menu" class="py-20 bg-dark-900">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-gold-500 font-bold uppercase tracking-wider text-xs">Exquisite Selection</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-2 mb-4">Our Signature Menu</h2>
+        <p class="text-stone-400 text-sm">Handcrafted using premium cuts, fresh brioche, and bespoke sauces.</p>
+
+        <!-- Menu Filter Tabs -->
+        <div class="flex justify-center gap-2 mt-8 flex-wrap">
+          <button onclick="filterMenu('all')" class="tab-btn active px-4 py-2 text-xs font-bold rounded-full border border-gold-500/30 bg-gold-500 text-black transition">All</button>
+          <button onclick="filterMenu('burgers')" class="tab-btn px-4 py-2 text-xs font-bold rounded-full border border-gold-500/30 bg-dark-800 text-stone-300 hover:text-white transition">Gourmet Burgers</button>
+          <button onclick="filterMenu('steaks')" class="tab-btn px-4 py-2 text-xs font-bold rounded-full border border-gold-500/30 bg-dark-800 text-stone-300 hover:text-white transition">Steaks & Chops</button>
+          <button onclick="filterMenu('sides')" class="tab-btn px-4 py-2 text-xs font-bold rounded-full border border-gold-500/30 bg-dark-800 text-stone-300 hover:text-white transition">Sides & Drinks</button>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8" id="menu-container">
+        <!-- Item 1: Burger -->
+        <div class="menu-item bg-dark-800 rounded-3xl overflow-hidden border border-stone-800 hover:border-gold-500/50 transition duration-300 flex flex-col justify-between" data-category="burgers">
+          <div>
+            <div class="h-56 relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Wagyu Truffle Burger" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 bg-black/80 text-gold-400 font-bold text-xs px-3 py-1 rounded-full border border-gold-500/40">£18.50</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif font-bold text-lg text-white mb-2">Wagyu Black Truffle Burger</h3>
+              <p class="text-stone-400 text-xs leading-relaxed">Dry-aged Wagyu beef patty, black truffle aioli, Gruyère cheese, and wild arugula in a glazed brioche bun.</p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="https://wa.me/447000000000?text=I%20want%20to%20order%20Wagyu%20Truffle%20Burger" target="_blank" class="w-full bg-dark-950 hover:bg-gold-500 hover:text-black text-gold-400 border border-gold-500/30 font-semibold py-2.5 rounded-xl transition text-xs flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp"></i> Quick Order
+            </a>
+          </div>
+        </div>
+
+        <!-- Item 2: Steak -->
+        <div class="menu-item bg-dark-800 rounded-3xl overflow-hidden border border-stone-800 hover:border-gold-500/50 transition duration-300 flex flex-col justify-between" data-category="steaks">
+          <div>
+            <div class="h-56 relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=600&q=80" alt="Tomahawk Steak" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 bg-black/80 text-gold-400 font-bold text-xs px-3 py-1 rounded-full border border-gold-500/40">£55.00</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif font-bold text-lg text-white mb-2">Black Angus Tomahawk (900g)</h3>
+              <p class="text-stone-400 text-xs leading-relaxed">Flame-grilled 28-day aged Tomahawk cut served with roasted garlic, smoked herb butter, and rosemary sprigs.</p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="https://wa.me/447000000000?text=I%20want%20to%20order%20Tomahawk%20Steak" target="_blank" class="w-full bg-dark-950 hover:bg-gold-500 hover:text-black text-gold-400 border border-gold-500/30 font-semibold py-2.5 rounded-xl transition text-xs flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp"></i> Quick Order
+            </a>
+          </div>
+        </div>
+
+        <!-- Item 3: Burger -->
+        <div class="menu-item bg-dark-800 rounded-3xl overflow-hidden border border-stone-800 hover:border-gold-500/50 transition duration-300 flex flex-col justify-between" data-category="burgers">
+          <div>
+            <div class="h-56 relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80" alt="Smoked Brisket Burger" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 bg-black/80 text-gold-400 font-bold text-xs px-3 py-1 rounded-full border border-gold-500/40">£16.00</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif font-bold text-lg text-white mb-2">14-Hour Smoked Brisket</h3>
+              <p class="text-stone-400 text-xs leading-relaxed">Slow-pulled oakwood smoked brisket, tangy Carolina mustard slaw, melted cheddar, and homemade BBQ glaze.</p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="https://wa.me/447000000000?text=I%20want%20to%20order%20Smoked%20Brisket" target="_blank" class="w-full bg-dark-950 hover:bg-gold-500 hover:text-black text-gold-400 border border-gold-500/30 font-semibold py-2.5 rounded-xl transition text-xs flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp"></i> Quick Order
+            </a>
+          </div>
+        </div>
+
+        <!-- Item 4: Steak -->
+        <div class="menu-item bg-dark-800 rounded-3xl overflow-hidden border border-stone-800 hover:border-gold-500/50 transition duration-300 flex flex-col justify-between" data-category="steaks">
+          <div>
+            <div class="h-56 relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=600&q=80" alt="Ribeye Steak" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 bg-black/80 text-gold-400 font-bold text-xs px-3 py-1 rounded-full border border-gold-500/40">£34.00</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif font-bold text-lg text-white mb-2">Prime Ribeye Steak (300g)</h3>
+              <p class="text-stone-400 text-xs leading-relaxed">Exceptional marbling grilled to your preference, served with crushed black peppercorn sauce and truffle butter.</p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="https://wa.me/447000000000?text=I%20want%20to%20order%20Ribeye%20Steak" target="_blank" class="w-full bg-dark-950 hover:bg-gold-500 hover:text-black text-gold-400 border border-gold-500/30 font-semibold py-2.5 rounded-xl transition text-xs flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp"></i> Quick Order
+            </a>
+          </div>
+        </div>
+
+        <!-- Item 5: Sides -->
+        <div class="menu-item bg-dark-800 rounded-3xl overflow-hidden border border-stone-800 hover:border-gold-500/50 transition duration-300 flex flex-col justify-between" data-category="sides">
+          <div>
+            <div class="h-56 relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=600&q=80" alt="Truffle Fries" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 bg-black/80 text-gold-400 font-bold text-xs px-3 py-1 rounded-full border border-gold-500/40">£7.50</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif font-bold text-lg text-white mb-2">Parmesan & Truffle Skin-on Fries</h3>
+              <p class="text-stone-400 text-xs leading-relaxed">Hand-cut crispy potatoes tossed with white truffle oil, grated 24-month aged parmesan, and fresh herbs.</p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="https://wa.me/447000000000?text=I%20want%20to%20order%20Truffle%20Fries" target="_blank" class="w-full bg-dark-950 hover:bg-gold-500 hover:text-black text-gold-400 border border-gold-500/30 font-semibold py-2.5 rounded-xl transition text-xs flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp"></i> Quick Order
+            </a>
+          </div>
+        </div>
+
+        <!-- Item 6: Drinks -->
+        <div class="menu-item bg-dark-800 rounded-3xl overflow-hidden border border-stone-800 hover:border-gold-500/50 transition duration-300 flex flex-col justify-between" data-category="sides">
+          <div>
+            <div class="h-56 relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80" alt="Smoked Mocktail" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 bg-black/80 text-gold-400 font-bold text-xs px-3 py-1 rounded-full border border-gold-500/40">£6.50</span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-serif font-bold text-lg text-white mb-2">Smoked Wild Berry Mocktail</h3>
+              <p class="text-stone-400 text-xs leading-relaxed">Fresh crushed blackberries, wild mint, botanical soda, infused with aromatic oakwood smoke.</p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="https://wa.me/447000000000?text=I%20want%20to%20order%20Smoked%20Berry%20Mocktail" target="_blank" class="w-full bg-dark-950 hover:bg-gold-500 hover:text-black text-gold-400 border border-gold-500/30 font-semibold py-2.5 rounded-xl transition text-xs flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp"></i> Quick Order
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation Section -->
+  <section id="reservation" class="py-20 bg-dark-950 border-t border-stone-800">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <span class="text-gold-500 font-bold uppercase tracking-wider text-xs">Exclusivity</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-2 mb-2">Book Your VIP Table</h2>
+        <p class="text-stone-400 text-sm">Experience private dining, chef specials, and impeccable hospitality.</p>
+      </div>
+
+      <div class="bg-dark-900 p-8 sm:p-10 rounded-3xl border border-gold-500/30 shadow-2xl">
+        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Reservation confirmed! Our hostess will contact you shortly.');">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-stone-400 mb-1">Full Name</label>
+              <input type="text" required class="w-full bg-dark-950 px-4 py-3 rounded-xl border border-stone-700 text-white focus:outline-none focus:border-gold-500 text-sm" placeholder="e.g. John Miller">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-stone-400 mb-1">Phone / WhatsApp</label>
+              <input type="tel" required class="w-full bg-dark-950 px-4 py-3 rounded-xl border border-stone-700 text-white focus:outline-none focus:border-gold-500 text-sm" placeholder="+44 7000 000000">
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-stone-400 mb-1">Guests</label>
+              <select class="w-full bg-dark-950 px-4 py-3 rounded-xl border border-stone-700 text-white focus:outline-none focus:border-gold-500 text-sm">
+                <option>2 Guests (Romantic)</option>
+                <option>4 Guests (Standard)</option>
+                <option>6+ Guests (VIP Lounge)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-stone-400 mb-1">Date</label>
+              <input type="date" required class="w-full bg-dark-950 px-4 py-3 rounded-xl border border-stone-700 text-white focus:outline-none focus:border-gold-500 text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-stone-400 mb-1">Time</label>
+              <input type="time" required class="w-full bg-dark-950 px-4 py-3 rounded-xl border border-stone-700 text-white focus:outline-none focus:border-gold-500 text-sm">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-stone-400 mb-1">Occasion / Special Request</label>
+            <textarea rows="3" class="w-full bg-dark-950 px-4 py-3 rounded-xl border border-stone-700 text-white focus:outline-none focus:border-gold-500 text-sm" placeholder="Birthday, anniversary, steak temperature preferences..."></textarea>
+          </div>
+
+          <div class="pt-2">
+            <button type="submit" class="w-full bg-gold-500 hover:bg-gold-400 text-black font-bold py-3.5 rounded-xl transition shadow-lg text-sm flex items-center justify-center gap-2">
+              <i class="fa-solid fa-check"></i>
+              <span>Confirm Reservation</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location & Footer -->
+  <footer id="contact" class="bg-black text-stone-400 py-12 text-xs border-t border-stone-900">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-center md:text-left">
+      <div>
+        <h4 class="font-serif text-lg font-bold text-white mb-2">THE GRILL HOUSE</h4>
+        <p class="text-stone-400 leading-relaxed">Pioneering wood-fired meat artistry and gourmet dining in a warm, sophisticated setting.</p>
+      </div>
+      <div>
+        <h4 class="font-bold text-white mb-2">Opening Hours</h4>
+        <p>Mon – Thu: 1:00 PM – 11:30 PM<br>Fri – Sun: 1:00 PM – 1:00 AM</p>
+      </div>
+      <div>
+        <h4 class="font-bold text-white mb-2">Contact & Location</h4>
+        <p>82 King Street, Manchester, UK<br>+44 161 000 0000</p>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 mt-8 pt-6 border-t border-stone-900 text-center">
+      <p>© 2026 THE GRILL HOUSE. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Script for Filtering Menu -->
+  <script>
+    function filterMenu(category) {
+      const items = document.querySelectorAll('.menu-item');
+      const buttons = document.querySelectorAll('.tab-btn');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-gold-500', 'text-black');
+        btn.classList.add('bg-dark-800', 'text-stone-300');
+      });
+      event.target.classList.add('bg-gold-500', 'text-black');
+      event.target.classList.remove('bg-dark-800', 'text-stone-300');
+
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
