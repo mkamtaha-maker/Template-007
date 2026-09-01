@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE GRILL HOUSE | تجربة الطهي الفاخر</title>
+    <!-- خطوط جوجل: Playfair Display للإنجليزية والعناوين، Cairo للعربية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="gold-text">GRILL</span>HOUSE
+            </a>
+            <nav class="nav-links">
+                <a href="#home">الرئيسية</a>
+                <a href="#about">قصتنا</a>
+                <a href="#menu">قائمة الطعام</a>
+                <a href="#experience">التجربة</a>
+                <a href="#reviews">الآراء</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="btn btn-gold" onclick="openReservationModal()">حجز طاولة</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <span class="sub-title">المذاق الحقيقي للشواء الفاخر</span>
+            <h1>نقدم لك لحوم معتقة ونكهات مدخنة لا تُنسى</h1>
+            <p>أطباق برجر ومشاوي معدة يدوياً من أجود لحوم الواغيو والبلاك أنجوس، مطبوخة ببطء على الحطب الطبيعي.</p>
+            <div class="hero-cta">
+                <a href="#menu" class="btn btn-gold">استكشف المنيو</a>
+                <button class="btn btn-outline" onclick="openReservationModal()">احجز طاولتك</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container grid-2">
+            <div class="about-image">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Gourmet Meat">
+                    <div class="badge-experience">
+                        <span class="years">15+</span>
+                        <span class="text">عاماً من الشغف والتميز</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-text">
+                <span class="section-tag">سر تميزنا</span>
+                <h2>شغف بالشواء، اختيار لأجود المكونات</h2>
+                <p>نؤمن بأن كل وجبة هي تجربة فريدة. نعتمد فقط على المكونات العضوية الطازجة ولحوم الأنجوس المعتمدة المتبلة بخلطاتنا الحصرية المدخنة بخشب البلوط الطبيعي.</p>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-fire-burner"></i>
+                        <div>
+                            <h4>طهي على الحطب الطبيعي</h4>
+                            <p>نكهات مدخنة متأصلة بحرارة خشب الأواك الفاخر.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-award"></i>
+                        <div>
+                            <h4>لحوم معتقة ممتازة</h4>
+                            <p>لحوم بلاك أنجوس وواغيو معتقة بعناية لـ 28 يوماً.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section with Dynamic Filter -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">أطباقنا الحصرية</span>
+                <h2>قائمة المأكولات الفاخرة</h2>
+                <div class="menu-tabs">
+                    <button class="tab-btn active" data-category="all">الكل</button>
+                    <button class="tab-btn" data-category="burgers">البرجر الفاخر</button>
+                    <button class="tab-btn" data-category="steaks">الستيك والمشاوي</button>
+                    <button class="tab-btn" data-category="sides">المقبلات والجانبية</button>
+                    <button class="tab-btn" data-category="drinks">المشروبات المنعشة</button>
+                </div>
+            </div>
+
+            <div class="menu-grid" id="menu-grid">
+                <!-- Item 1 -->
+                <div class="menu-card" data-category="burgers">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Wagyu Truffle Burger">
+                        <span class="price-tag">85 ر.س</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>واغيو ترافل برجر</h3>
+                        <p>شريحة لحم واغيو معتقة، صوص الترافل الأسود، جبن الغرويير وسلطة الجرجير البرية في خبز البريوش.</p>
+                        <button class="btn-order-fast"><i class="fa-solid fa-bag-shopping"></i> طلب سريع</button>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="menu-card" data-category="steaks">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=600&q=80" alt="Tomahawk Steak">
+                        <span class="price-tag">240 ر.س</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>ستيك توماهوك بلاك أنجوس</h3>
+                        <p>شريحة توماهوك تزن 900 غرام مشوية على الفحم النباتي مع زبدة الأعشاب وإكليل الجبل.</p>
+                        <button class="btn-order-fast"><i class="fa-solid fa-bag-shopping"></i> طلب سريع</button>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="menu-card" data-category="burgers">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80" alt="Smoked Brisket Burger">
+                        <span class="price-tag">78 ر.س</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>سموكد بريسكت برجر</h3>
+                        <p>لحم بريسكت مدخن لمدة 14 ساعة، صوص الباربكيو الكاروليني، كول سلو بالخردل المقرمش.</p>
+                        <button class="btn-order-fast"><i class="fa-solid fa-bag-shopping"></i> طلب سريع</button>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="menu-card" data-category="sides">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=600&q=80" alt="Truffle Parmesan Fries">
+                        <span class="price-tag">38 ر.س</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>بطاطس مقرمشة بزيت الترافل والبارميزان</h3>
+                        <p>بطاطس طازجة مقطعة يدوياً، مع زيت الترافل الأبيض وجبن البارميزان المعتق ورشة بقدونس.</p>
+                        <button class="btn-order-fast"><i class="fa-solid fa-bag-shopping"></i> طلب سريع</button>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="menu-card" data-category="steaks">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=600&q=80" alt="Ribeye Steak">
+                        <span class="price-tag">195 ر.س</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>ريب آي معتق 300 غرام</h3>
+                        <p>شريحة ريب آي رخامية مشوية بدرجة الاستواء المفضلة لك مع صوص الفلفل الأسود الكريمي.</p>
+                        <button class="btn-order-fast"><i class="fa-solid fa-bag-shopping"></i> طلب سريع</button>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="menu-card" data-category="drinks">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80" alt="Smoked Berry Mocktail">
+                        <span class="price-tag">28 ر.س</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>موكتيل التوت البري المدخن</h3>
+                        <p>مزيج منعش من التوت البري، الريحان الطازج، ولمسة مدخنة خفيفة مع الصودا الفوارة.</p>
+                        <button class="btn-order-fast"><i class="fa-solid fa-bag-shopping"></i> طلب سريع</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section id="reservation" class="reservation-section">
+        <div class="container">
+            <div class="reservation-box">
+                <div class="reservation-header text-center">
+                    <span class="section-tag">خدمة كبار الشخصيات</span>
+                    <h2>احجز طاولتك الفاخرة الآن</h2>
+                    <p>استمتع بتجربة طعام استثنائية مع أجواء راقية وخدمة مخصصة.</p>
+                </div>
+                <form class="reservation-form" id="bookingForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>الاسم بالكامل</label>
+                            <input type="text" placeholder="مثال: أحمد العلي" required>
+                        </div>
+                        <div class="form-group">
+                            <label>رقم الهاتف</label>
+                            <input type="tel" placeholder="+966 5x xxx xxxx" required>
+                        </div>
+                        <div class="form-group">
+                            <label>عدد الضيوف</label>
+                            <select required>
+                                <option value="1">شخص واحد</option>
+                                <option value="2" selected>شخصين</option>
+                                <option value="4">4 أشخاص</option>
+                                <option value="6">6 أشخاص أو أكثر (جلسة VIP)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>التاريخ</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>الوقت</label>
+                            <input type="time" required>
+                        </div>
+                        <div class="form-group">
+                            <label>مناسبة خاصة؟</label>
+                            <select>
+                                <option value="none">عشاء عادي</option>
+                                <option value="birthday">عيد ميلاد</option>
+                                <option value="anniversary">ذكرى سنوية</option>
+                                <option value="business">عشاء عمل</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-submit text-center">
+                        <button type="submit" class="btn btn-gold btn-large">تأكيد الحجز الفوري</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo"><span class="gold-text">GRILL</span>HOUSE</a>
+                <p>وجهتكم الأولى لأشهى أطباق اللحوم المعتقة والبرجر الفاخر المحضر بأعلى معايير الطهي العالمية.</p>
+            </div>
+            <div class="footer-col">
+                <h4>ساعات العمل</h4>
+                <p>يومياً: من 1:00 ظهراً حتى 1:30 بعد منتصف الليل</p>
+                <p>الجمعة: من 2:00 ظهراً حتى 2:00 بعد منتصف الليل</p>
+            </div>
+            <div class="footer-col">
+                <h4>تواصل معنا</h4>
+                <p><i class="fa-solid fa-location-dot"></i> طريق الملك فهد، الرياض، المملكة العربية السعودية</p>
+                <p><i class="fa-solid fa-phone"></i> +966 11 000 0000</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 THE GRILL HOUSE. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- Reservation Modal Popup -->
+    <div class="modal" id="reservationModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeReservationModal()">&times;</span>
+            <div class="modal-body text-center">
+                <i class="fa-solid fa-circle-check modal-icon"></i>
+                <h3>تم تأكيد طلب الحجز!</h3>
+                <p>سيتواصل معك فريق الاستقبال خلال 15 دقيقة لتأكيد تفاصيل الطاولة.</p>
+                <button class="btn btn-gold" onclick="closeReservationModal()">تم</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
